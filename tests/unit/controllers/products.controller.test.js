@@ -66,24 +66,18 @@ describe("Teste de unidade do productsController", function () {
     });
   });
 
-  it("Cadastrando um produto", async function () {
+  it("Cadastrando um novo produto", async function () {
     const res = {};
     const req = { body: { name: 'Iphone 14' } };
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
     sinon.stub(productsService, "insert").resolves({ type: null, message: 4 });
-
     sinon.stub(productsService, "findById").resolves({ type: null, message: newProduct });
 
-    // const productId = await productsController.insert(req.body);
-    // console.log(productById, 'productId');
-    // await productsController.findById(productId.message);
+    await productsController.insert(req, res);
 
-    // expect(res.status).to.have.been.calledWith(201);
-
-    // expect(res.json).to.have.been.calledWith({
-    //   message: "Product not found",
-    // });
+    expect(res.status).to.have.been.calledWith(201);
+    expect(res.json).to.have.been.calledWith(newProduct);
   });
 });
