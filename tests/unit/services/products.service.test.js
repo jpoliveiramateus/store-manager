@@ -35,4 +35,13 @@ describe("Teste de unidade do productsService", function () {
     expect(response.type).to.equal("NOT_FOUND");
     expect(response.message).to.equal("Product not found");
   });
+
+  it("Cadastrando um novo produto", async function () {
+    sinon.stub(productsModel, "insert").resolves(4);
+
+    const response = await productsService.insert({ name: "Iphone" });
+
+    expect(response.type).to.equal(null);
+    expect(response.message).to.equal(4);
+  });
 });

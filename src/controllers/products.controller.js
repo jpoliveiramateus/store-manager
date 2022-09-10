@@ -18,7 +18,7 @@ const findById = async (req, res) => {
 const insert = async (req, res) => {
   const productId = await productsService.insert(req.body);
   const productById = await productsService.findById(productId.message); 
-
+  console.log(res, 'res');
   return res.status(201).json(productById.message);
 };
 

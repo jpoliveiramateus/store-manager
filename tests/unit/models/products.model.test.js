@@ -23,4 +23,10 @@ describe("Teste de unidade do productsModel", function () {
 
     expect(result).to.equal(productById);
   });
+
+  it("Cadastrando um novo produto", async function () {
+    sinon.stub(connection, "execute").resolves([{ insertId: 4 }]);
+    const result = await productsModel.insert("Iphone");
+    expect(result).to.equal(4);
+  });
 });

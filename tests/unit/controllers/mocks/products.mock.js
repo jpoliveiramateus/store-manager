@@ -18,7 +18,13 @@ const productById = {
   name: "Traje de encolhimento",
 };
 
+const newProduct = {
+  id: 4,
+  name: "Iphone 14"
+}
+
 module.exports = {
   productsList,
   productById,
+  newProduct
 };
