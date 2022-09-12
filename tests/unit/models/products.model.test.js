@@ -8,12 +8,12 @@ const { productsList, productById } = require("../controllers/mocks/products.moc
 describe("Teste de unidade do productsModel", function () {
   afterEach(sinon.restore);
 
-  it("Recuperando todos a lista com todos os produtos", async function () {
+  it("Recuperando a lista com todos os produtos", async function () {
     sinon.stub(connection, "execute").resolves([productsList]);
 
     const result = await productsModel.findAll();
 
-    expect(result).to.equal(productsList);
+    expect(result).to.deep.equal(productsList);
   });
 
   it("Recuperando um produto por ID", async function () {
@@ -21,7 +21,7 @@ describe("Teste de unidade do productsModel", function () {
 
     const result = await productsModel.findById(2);
 
-    expect(result).to.equal(productById);
+    expect(result).to.deep.equal(productById);
   });
 
   it("Cadastrando um novo produto", async function () {
