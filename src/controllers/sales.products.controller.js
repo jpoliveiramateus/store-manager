@@ -7,6 +7,23 @@ const insert = async (req, res) => {
   return res.status(201).json(response);
 };
 
+const findAll = async (_req, res) => {
+  const response = await salesProductsService.findAll();
+  return res.status(200).json(response.message); 
+};
+
+const findById = async (req, res) => {
+  const response = await salesProductsService.findById(req.params.id);
+
+  if (response.type) {
+    return res.status(404).json({ message: response.message });
+  }
+
+  return res.status(200).json(response.message);
+};
+
 module.exports = {
   insert,
+  findAll,
+  findById,
 };

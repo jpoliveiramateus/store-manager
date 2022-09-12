@@ -14,4 +14,8 @@ router.post('/',
   validateProductSoldById,
   salesProductsController.insert);
 
+router.get('/', salesProductsController.findAll);
+
+router.get('/:id', salesProductsController.findById);
+
 module.exports = router;
