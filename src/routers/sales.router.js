@@ -7,6 +7,8 @@ const {
   validateProductSold,
 } = require('../middlewares/product.middleware');
 
+const { validateSaleById } = require('../middlewares/sale.middleware');
+
 const router = express.Router();
 
 router.post('/',
@@ -17,5 +19,7 @@ router.post('/',
 router.get('/', salesProductsController.findAll);
 
 router.get('/:id', salesProductsController.findById);
+
+router.delete('/:id', validateSaleById, salesProductsController.deleteById);
 
 module.exports = router;
