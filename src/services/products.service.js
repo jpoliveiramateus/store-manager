@@ -20,8 +20,13 @@ const insert = async ({ name }) => {
   return { type: null, message: productId };
 };
 
+const updateById = async (newProductName, productId) => {
+  await productsModel.updateById(newProductName, productId);
+};
+
 module.exports = {
   findAll,
   findById,
   insert,
+  updateById,
 };

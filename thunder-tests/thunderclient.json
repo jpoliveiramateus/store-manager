@@ -92,5 +92,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "369956ef-6b8c-44c3-b66a-9e85227eb326",
+    "colId": "0287a232-aa70-470e-af4b-14e54076069d",
+    "containerId": "",
+    "name": "UPDATE PRODUCT",
+    "url": "http://localhost:3000/products/1",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2022-09-12T21:42:27.495Z",
+    "modified": "2022-09-12T21:56:15.495Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Test\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
