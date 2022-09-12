@@ -1,7 +1,9 @@
 const { salesProductsModel } = require('../models');
 
-const insert = async (saleId, itemsSold) => {
-  await salesProductsModel.insert(saleId, itemsSold);
+const insert = (saleId, itemsSold) => {
+  itemsSold.forEach(async (item) => {
+    await salesProductsModel.insert(saleId, item);
+  });
 };
 
 const findAll = async () => {
