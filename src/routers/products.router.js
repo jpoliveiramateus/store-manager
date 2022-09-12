@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/', productsController.findAll);
 
-router.get('/:id', productsController.findById);
+router.get('/:id', validateProductById, productsController.findById);
 
 router.post('/', validateProductByName, productsController.insert);
 
