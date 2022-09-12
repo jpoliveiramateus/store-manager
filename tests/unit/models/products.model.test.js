@@ -35,4 +35,10 @@ describe("Teste de unidade do productsModel", function () {
     const result = await productsModel.updateById("Zenfone 4", 1);
     expect(result).to.equal(1);
   });
+
+  it("Deletando um produto por ID", async function () {
+    sinon.stub(connection, "execute").resolves([{ affectedRows: 1 }]);
+    const result = await productsModel.deleteById(1);
+    expect(result).to.equal(1);
+  });
 });

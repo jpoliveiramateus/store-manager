@@ -95,4 +95,16 @@ describe("Teste de unidade do productsController", function () {
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(newProduct);
   });
+
+  it("Deletando um produto por ID", async function () {
+    const res = {};
+    const req = { params: { id: 12 } };
+    res.sendStatus = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsService, "deleteById").resolves();
+    await productsController.deleteById(req, res);
+
+    expect(res.sendStatus).to.have.been.calledWith(204);
+  });
 });

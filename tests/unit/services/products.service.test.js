@@ -49,4 +49,9 @@ describe("Teste de unidade do productsService", function () {
     sinon.stub(productsModel, "updateById").resolves(1);
     await productsService.updateById("Zenfone 4", 1);
   });
+
+  it("Deletando um produto por ID", async function () {
+    sinon.stub(productsModel, "deleteById").resolves(1);
+    await productsService.deleteById(1);
+  });
 });
