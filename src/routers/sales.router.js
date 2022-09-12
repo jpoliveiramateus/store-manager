@@ -1,6 +1,7 @@
 const express = require('express');
 
-const { salesController } = require('../controllers');
+const { salesProductsController } = require('../controllers');
+
 const {
   validateProductSoldById,
   validateProductSold,
@@ -11,6 +12,6 @@ const router = express.Router();
 router.post('/',
   validateProductSold,
   validateProductSoldById,
-  salesController.insert);
+  salesProductsController.insert);
 
 module.exports = router;
