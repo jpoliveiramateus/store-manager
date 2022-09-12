@@ -80,4 +80,19 @@ describe("Teste de unidade do productsController", function () {
     expect(res.status).to.have.been.calledWith(201);
     expect(res.json).to.have.been.calledWith(newProduct);
   });
+
+  it("Atualizando um produto por ID", async function () {
+    const res = {};
+    const req = { params: { id: 12 }, body: { name: "Iphone 14" } };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsService, "updateById").resolves();
+    sinon.stub(productsService, "findById").resolves({ type: null, message: newProduct });
+
+    await productsController.updateById(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(newProduct);
+  });
 });

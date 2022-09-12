@@ -44,4 +44,9 @@ describe("Teste de unidade do productsService", function () {
     expect(response.type).to.equal(null);
     expect(response.message).to.equal(4);
   });
+  
+  it("Atualizando um produto por ID", async function () {
+    sinon.stub(productsModel, "updateById").resolves(1);
+    await productsService.updateById("Zenfone 4", 1);
+  });
 });
