@@ -107,4 +107,21 @@ describe("Teste de unidade do productsController", function () {
 
     expect(res.sendStatus).to.have.been.calledWith(204);
   });
+
+  it("Buscando um produto por nome", async function () {
+    const res = {};
+    const req = { query: { q: 'Martelo' } };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(productsService, "findAll").resolves({
+      type: null,
+      message: productsList,
+    });
+    
+    await productsController.findByName(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith([{ id: 1, name: "Martelo de Thor" }]);
+  });
 });
