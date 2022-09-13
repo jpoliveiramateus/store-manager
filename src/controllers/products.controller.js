@@ -15,6 +15,12 @@ const findById = async (req, res) => {
   return res.status(200).json(productById.message);
 };
 
+const findByName = async (req, res) => {
+  const products = await productsService.findAll();
+  const productsByName = products.message.filter((product) => product.name.includes(req.query.q));
+  res.status(200).json(productsByName);
+};
+
 const insert = async (req, res) => {
   const productId = await productsService.insert(req.body);
   const productById = await productsService.findById(productId.message);
@@ -36,6 +42,7 @@ const deleteById = async (req, res) => {
 module.exports = {
   findAll,
   findById,
+  findByName,
   insert,
   updateById,
   deleteById,
