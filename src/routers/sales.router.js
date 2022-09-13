@@ -20,6 +20,14 @@ router.get('/', salesProductsController.findAll);
 
 router.get('/:id', salesProductsController.findById);
 
+router.put(
+  '/:id',
+  validateProductSold,
+  validateProductSoldById,
+  validateSaleById,
+  salesProductsController.updateById,
+);
+
 router.delete('/:id', validateSaleById, salesProductsController.deleteById);
 
 module.exports = router;

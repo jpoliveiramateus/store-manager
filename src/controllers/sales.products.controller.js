@@ -27,9 +27,15 @@ const deleteById = async (req, res) => {
   return res.sendStatus(204);
 };
 
+const updateById = async (req, res) => {
+  await salesProductsService.updateById(req.params.id, req.body);
+  return res.status(200).json({ saleId: req.params.id, itemsUpdated: req.body }); 
+};
+
 module.exports = {
   insert,
   findAll,
   findById,
   deleteById,
+  updateById,
 };

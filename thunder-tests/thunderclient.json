@@ -139,5 +139,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "a72c950a-ab03-4f19-8a8b-550b8b55ee0c",
+    "colId": "0287a232-aa70-470e-af4b-14e54076069d",
+    "containerId": "",
+    "name": "PUT SALES",
+    "url": "http://localhost:3000/sales/1",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2022-09-13T01:39:05.891Z",
+    "modified": "2022-09-13T02:05:18.520Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "form": []
+    },
+    "tests": []
   }
 ]

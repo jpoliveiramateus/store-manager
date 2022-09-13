@@ -21,8 +21,15 @@ const findById = async (saleId) => {
   return { type: 'NOT_FOUND', message: 'Sale not found' };
 };
 
+const updateById = (saleId, itemsUpdated) => {
+  itemsUpdated.forEach(async (itemUpdated) => {
+    await salesProductsModel.updateById(saleId, itemUpdated);
+  });
+};
+
 module.exports = {
   insert,
   findAll,
   findById,
+  updateById,
 };
