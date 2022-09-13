@@ -7,7 +7,7 @@ chai.use(sinonChai);
 
 const { salesProductsController } = require('../../../src/controllers');
 const { salesService, salesProductsService } = require('../../../src/services');
-const { postSale } = require("./mocks/sales.mock");
+const { postSale, putSale } = require("./mocks/sales.mock");
 const { salesProducts, saleById } = require('../services/mocks/sales.products.mock');
 
 describe("Teste de unidade do salesProductsController", function () {
@@ -84,5 +84,22 @@ describe("Teste de unidade do salesProductsController", function () {
     await salesProductsController.deleteById(req, res);
 
     expect(res.sendStatus).to.have.been.calledWith(204);
+  });
+
+  it("Atualizando uma venda por ID", async function () {
+    const res = {};
+    const req = { params: { id: 2 }, body: putSale };
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    sinon.stub(salesProductsService, "updateById").resolves();
+
+    await salesProductsController.updateById(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith({
+      saleId: req.params.id,
+      itemsUpdated: putSale,
+    });
   });
 });

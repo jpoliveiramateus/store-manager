@@ -37,9 +37,21 @@ const saleById = [
   },
 ];
 
+const putSale = [
+  {
+    productId: 1,
+    quantity: 10,
+  },
+  {
+    productId: 2,
+    quantity: 50,
+  },
+];
+
 module.exports = {
   salesProducts,
   itemsSold,
   itemSold,
-  saleById
+  saleById,
+  putSale,
 };

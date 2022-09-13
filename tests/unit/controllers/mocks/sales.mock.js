@@ -9,6 +9,18 @@ const postSale = [
   },
 ];
 
+const putSale = [
+  {
+    productId: 1,
+    quantity: 10,
+  },
+  {
+    productId: 2,
+    quantity: 50,
+  },
+];
+
 module.exports = {
   postSale,
-}
+  putSale,
+};

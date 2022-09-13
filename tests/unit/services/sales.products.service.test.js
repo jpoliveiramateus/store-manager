@@ -3,7 +3,7 @@ const sinon = require("sinon");
 
 const { salesProductsModel } = require("../../../src/models");
 const { salesProductsService } = require("../../../src/services");
-const { itemsSold, salesProducts, saleById } = require("./mocks/sales.products.mock");
+const { itemsSold, salesProducts, saleById, putSale } = require("./mocks/sales.products.mock");
 
 describe("Teste de unidade do salesProductsService", function () {
   afterEach(sinon.restore);
@@ -38,5 +38,10 @@ describe("Teste de unidade do salesProductsService", function () {
 
     expect(response.type).equal("NOT_FOUND");
     expect(response.message).to.equal("Sale not found");
+  });
+
+  it("Atualizando uma venda por ID", async function () {
+    sinon.stub(salesProductsModel, "updateById").resolves();
+    await salesProductsService.updateById(3, putSale);
   });
 });
