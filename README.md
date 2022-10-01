@@ -1,5 +1,7 @@
 # 🛍️ Projeto Store Manager
 
+![store_manager](https://user-images.githubusercontent.com/99822908/193403456-4d9440c5-7979-4b7d-a1a3-8a7c340396f4.jpg)
+
 ## 📄 Sobre
 
 Um sistema de gerenciamento de vendas no formato dropshipping em que é possível criar, visualizar, deletar e atualizar produtos e vendas. Foi utilizado o banco de dados MySQL para a gestão de dados, utilizando a arquitetura MSC (model-service-controller).
