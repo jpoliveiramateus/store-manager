@@ -1,6 +1,6 @@
 # 🛍️ Projeto Store Manager
 
-![store_manager](https://user-images.githubusercontent.com/99822908/193403456-4d9440c5-7979-4b7d-a1a3-8a7c340396f4.jpg)
+![3901287](https://user-images.githubusercontent.com/99822908/193696033-76e3e2d2-719f-485b-8807-197e9811ab47.jpg)
 
 ## 📄 Sobre
 
